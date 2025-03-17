@@ -1,0 +1,37 @@
+# Cline Global Rules Configuration
+
+# Code Generation Rules
+max_line_length = 80
+indent_style = space
+indent_size = 2
+quote_style = single
+
+# Documentation Requirements
+require_comments = true
+require_function_docs = true
+require_param_docs = true
+
+# File Handling
+max_file_size = 1000KB
+ignore_patterns = node_modules/**, dist/**, build/**
+
+# Safety Settings
+prevent_destructive = true
+require_confirmation = true
+backup_before_changes = true
+
+# Performance Settings
+enable_caching = true
+cache_duration = 3600
+parallel_processing = true
+max_concurrent = 4
+
+# Language and Framework Preferences
+preferred_language = typescript
+preferred_frontend = react
+preferred_backend = node
+preferred_testing = jest
+
+# Style Guides
+follow_airbnb_style = true
+follow_google_style = true
