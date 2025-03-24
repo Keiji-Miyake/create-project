@@ -1,37 +1,95 @@
-# Cline Global Rules Configuration
+# Project Guidelines
 
-# Code Generation Rules
-max_line_length = 80
-indent_style = space
-indent_size = 2
-quote_style = single
+## Security Requirements
 
-# Documentation Requirements
-require_comments = true
-require_function_docs = true
-require_param_docs = true
+- バックアップを有効化（保持期間: 7日）
+- 破壊的な操作は確認を必要とする
+- 環境変数の使用は制限付きで許可
+- 許可されたコマンド: npm, pnpm, node, git
 
-# File Handling
-max_file_size = 1000KB
-ignore_patterns = node_modules/**, dist/**, build/**
+## Performance Guidelines
 
-# Safety Settings
-prevent_destructive = true
-require_confirmation = true
-backup_before_changes = true
+- キャッシュを有効化（有効期間: 1時間）
+- 並行処理の最大数: 4
+- メモリ制限: 1GB
 
-# Performance Settings
-enable_caching = true
-cache_duration = 3600
-parallel_processing = true
-max_concurrent = 4
+## Project Stack
 
-# Language and Framework Preferences
-preferred_language = typescript
-preferred_frontend = react
-preferred_backend = node
-preferred_testing = jest
+- 言語: TypeScript
+- フロントエンド: React
+- バックエンド: Node.js
+- テストフレームワーク: 
+  - ユニットテスト: Jest
+  - E2Eテスト: Playwright
+- パッケージマネージャー: pnpm
 
-# Style Guides
-follow_airbnb_style = true
-follow_google_style = true
+## File Management
+
+- 最大ファイルサイズ: 1MB
+- エンコーディング: UTF-8
+- 無視するパターン:
+  - node_modules/**
+  - dist/**
+  - build/**
+  - .git/**
+  - *.log
+  - coverage/**
+  - test-results/**
+  - playwright-report/**
+
+## Development Standards
+
+### Documentation Requirements
+
+- 機能変更時は関連ドキュメントを更新
+- README.mdを最新状態に保つ
+- CHANGELOG.mdにエントリを追加
+- コメントは日本語で記述
+
+### Code Style
+
+- コンポーネントは関数コンポーネントを使用
+- 継承よりもコンポジションを優先
+- データアクセスにはリポジトリパターンを使用
+- エラーハンドリングは統一されたパターンに従う
+
+### Testing Standards
+
+- ビジネスロジックにはユニットテスト（Jest）が必須
+- APIエンドポイントには統合テストを実装
+- 重要なユーザーフローにはPlaywrightでE2Eテストを実装
+- テストカバレッジ目標: 
+  - ユニットテスト: 80%以上
+  - E2Eテスト: 主要フロー100%
+
+### Git Workflow
+
+- ブランチパターン: feature/, bugfix/, hotfix/
+- コミット前にlintとテストを実行
+- PRには必ずレビューが必要
+- 作業単位でのコミット:
+  - 1つの論理的な変更が完了したらコミット
+  - コミットメッセージは変更内容を明確に説明
+  - 複数の変更は分割してコミット
+  - WIPコミットは避ける
+
+## Tools Configuration
+
+### Editor
+
+- デフォルトエディタ: VSCode
+- 設定パス: .vscode/
+
+### Linter & Formatter
+
+- TypeScript: ESLint
+- コード整形: Prettier
+- 設定ファイル: .eslintrc, .prettierrc
+
+## Logging
+
+- ログレベル: info（環境変数で上書き可能）
+- フォーマット: JSON
+- ログローテーション: 有効
+  - 最大ファイル数: 5
+  - 最大サイズ: 10MB
