@@ -1,95 +1,59 @@
-# Project Guidelines
+# Project Intelligence
 
-## Security Requirements
+## Critical Implementation Patterns
 
-- バックアップを有効化（保持期間: 7日）
-- 破壊的な操作は確認を必要とする
-- 環境変数の使用は制限付きで許可
-- 許可されたコマンド: npm, pnpm, node, git
-
-## Performance Guidelines
-
-- キャッシュを有効化（有効期間: 1時間）
-- 並行処理の最大数: 4
-- メモリ制限: 1GB
-
-## Project Stack
-
-- 言語: TypeScript
-- フロントエンド: React
-- バックエンド: Node.js
-- テストフレームワーク: 
-  - ユニットテスト: Jest
-  - E2Eテスト: Playwright
-- パッケージマネージャー: pnpm
-
-## File Management
-
-- 最大ファイルサイズ: 1MB
-- エンコーディング: UTF-8
-- 無視するパターン:
-  - node_modules/**
-  - dist/**
-  - build/**
-  - .git/**
-  - *.log
-  - coverage/**
-  - test-results/**
-  - playwright-report/**
-
-## Development Standards
-
-### Documentation Requirements
-
-- 機能変更時は関連ドキュメントを更新
-- README.mdを最新状態に保つ
-- CHANGELOG.mdにエントリを追加
-- コメントは日本語で記述
-
-### Code Style
-
-- コンポーネントは関数コンポーネントを使用
-- 継承よりもコンポジションを優先
 - データアクセスにはリポジトリパターンを使用
-- エラーハンドリングは統一されたパターンに従う
+  - データの永続化と取得の一貫性を確保
+  - ビジネスロジックとデータアクセスの分離を徹底
+- エラーハンドリングパターン
+  - 統一された例外処理の実装
+  - エラーログの標準化
+- コンポーネント設計パターン
+  - 関数コンポーネントの使用
+  - 継承よりもコンポジションを優先
+  - 責務の明確な分離
 
-### Testing Standards
+## Project Specific Requirements
 
-- ビジネスロジックにはユニットテスト（Jest）が必須
-- APIエンドポイントには統合テストを実装
-- 重要なユーザーフローにはPlaywrightでE2Eテストを実装
-- テストカバレッジ目標: 
-  - ユニットテスト: 80%以上
-  - E2Eテスト: 主要フロー100%
+- セキュリティ要件
+  - 環境変数の使用は制限付きで許可
+  - 許可されたコマンド: npm, pnpm, node, git
+  - 破壊的な操作は確認を必要とする
+- 開発規約
+  - 日本語によるコメント記述
+  - UTF-8エンコーディングの徹底
 
-### Git Workflow
+## Development Workflow Patterns
 
-- ブランチパターン: feature/, bugfix/, hotfix/
-- コミット前にlintとテストを実行
-- PRには必ずレビューが必要
-- 作業単位でのコミット:
-  - 1つの論理的な変更が完了したらコミット
-  - コミットメッセージは変更内容を明確に説明
-  - 複数の変更は分割してコミット
-  - WIPコミットは避ける
+- 変更管理
+  - コミットの基本ルール
+    - 1つの論理的な変更を1つのコミットに
+    - WIPコミットの回避
+    - PRレビューの必須化
+  - コミットメッセージ規約
+    - プレフィックスの使用: feat:, fix:, docs:, test:, refactor:
+    - 日本語での説明を含める
+    - 関連するチケット番号の記載
+  - コミットのタイミング
+    - 機能実装の完了時
+    - バグ修正の完了時
+    - テストの追加・修正時
+    - ドキュメントの更新時
+  - コミットの粒度
+    - 単一の責務に関する変更のみを含める
+    - レビュー可能な大きさに制限（目安：200行以内）
+    - 関連する変更は同一コミットにまとめる
+  - 作業前の確認事項
+    - 作業ブランチの最新化
+    - 作業内容の明確化
+    - 影響範囲の確認
+- 品質管理
+  - コミット前のlintとテスト実行
+  - 変更範囲の最小化
+  - レビュー指摘事項の確実な反映
 
-## Tools Configuration
+## Known Challenges
 
-### Editor
-
-- デフォルトエディタ: VSCode
-- 設定パス: .vscode/
-
-### Linter & Formatter
-
-- TypeScript: ESLint
-- コード整形: Prettier
-- 設定ファイル: .eslintrc, .prettierrc
-
-## Logging
-
-- ログレベル: info（環境変数で上書き可能）
-- フォーマット: JSON
-- ログローテーション: 有効
-  - 最大ファイル数: 5
-  - 最大サイズ: 10MB
+- 環境変数の制限付き使用による開発フロー
+- レビュープロセスの効率化
+- コンポーネント再利用性の最適化
