@@ -70,8 +70,8 @@ export async function generateAndUploadPDF(
   } catch (error) {
     console.error('PDF処理エラー:', error);
     throw new Error(
-      error instanceof Error 
-        ? error.message 
+      error instanceof Error
+        ? error.message
         : 'PDFの生成中にエラーが発生しました'
     );
   }
@@ -103,10 +103,15 @@ export function isPDFElement(element: ReactElement): element is PDFElement {
 export function formatPDFMetadata(metadata: PDFMetadata): string {
   const fileSizeInMB = (metadata.fileSize / (1024 * 1024)).toFixed(2);
   const created = new Date(metadata.createdAt).toLocaleString('ja-JP');
-  
+
   return `ファイル名: ${metadata.fileName}
 作成日時: ${created}
 ファイルサイズ: ${fileSizeInMB}MB
-アップロード状態: ${metadata.uploadStatus === 'uploaded' ? '完了' : 
-                    metadata.uploadStatus === 'failed' ? '失敗' : 'ローカルのみ'}`;
+アップロード状態: ${
+    metadata.uploadStatus === 'uploaded'
+      ? '完了'
+      : metadata.uploadStatus === 'failed'
+        ? '失敗'
+        : 'ローカルのみ'
+  }`;
 }

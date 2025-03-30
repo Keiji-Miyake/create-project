@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
-import { generateReceiptHTML, type ReceiptData } from '@/utils/receipt-template';
+import {
+  generateReceiptHTML,
+  type ReceiptData,
+} from '@/utils/receipt-template';
 
 export async function POST(request: Request) {
   try {
@@ -13,14 +16,14 @@ export async function POST(request: Request) {
     // Puppeteerブラウザを起動
     const browser = await puppeteer.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
 
     try {
       // HTMLをセット
       await page.setContent(html, {
-        waitUntil: 'networkidle0'
+        waitUntil: 'networkidle0',
       });
 
       // PDFを生成
@@ -31,8 +34,8 @@ export async function POST(request: Request) {
           top: '20mm',
           right: '20mm',
           bottom: '20mm',
-          left: '20mm'
-        }
+          left: '20mm',
+        },
       });
 
       // ブラウザを閉じる
@@ -43,21 +46,19 @@ export async function POST(request: Request) {
         status: 200,
         headers: {
           'Content-Type': 'application/pdf',
-          'Content-Disposition': `attachment; filename=receipt-${data.invoiceNumber}.pdf`
-        }
+          'Content-Disposition': `attachment; filename=receipt-${data.invoiceNumber}.pdf`,
+        },
       });
-
     } catch (error) {
       await browser.close();
       throw error;
     }
-
   } catch (error) {
     console.error('PDF生成エラー:', error);
     return NextResponse.json(
-      { 
+      {
         error: 'PDFの生成に失敗しました',
-        details: error instanceof Error ? error.message : undefined
+        details: error instanceof Error ? error.message : undefined,
       },
       { status: 500 }
     );

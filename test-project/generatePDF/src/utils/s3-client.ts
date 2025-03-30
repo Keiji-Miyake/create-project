@@ -17,7 +17,7 @@ export async function uploadPDFToS3(
 ): Promise<string> {
   try {
     const buffer = await pdfBlob.arrayBuffer();
-    
+
     const command = new PutObjectCommand({
       Bucket: bucketName,
       Key: `receipts/${fileName}`,
@@ -26,7 +26,7 @@ export async function uploadPDFToS3(
     });
 
     await s3Client.send(command);
-    
+
     // S3のURLを返す
     return `https://${bucketName}.s3.amazonaws.com/receipts/${fileName}`;
   } catch (error) {

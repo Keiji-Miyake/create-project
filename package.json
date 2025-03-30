@@ -1,0 +1,20 @@
+{
+  "name": "ai-toolbox",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build-clinerules": "ts-node-esm scripts/build-clinerules.ts",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    ".cline/rules/**/*.md": "npm run build-clinerules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.12.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}

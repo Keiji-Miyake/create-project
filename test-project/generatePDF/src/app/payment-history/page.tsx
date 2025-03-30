@@ -37,10 +37,10 @@ const GenerateReceiptButton = ({ payment }: { payment: ReceiptData }) => {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-
     } catch (err) {
       console.error('PDF生成エラー:', err);
-      const errorMessage = err instanceof Error ? err.message : '予期せぬエラーが発生しました';
+      const errorMessage =
+        err instanceof Error ? err.message : '予期せぬエラーが発生しました';
       setError(`領収書の生成に失敗しました: ${errorMessage}`);
     } finally {
       setIsGenerating(false);
@@ -67,9 +67,10 @@ const GenerateReceiptButton = ({ payment }: { payment: ReceiptData }) => {
         disabled={isGenerating}
         className={`
           w-full px-4 py-2 rounded transition-colors
-          ${isGenerating
-            ? 'bg-gray-400 cursor-not-allowed'
-            : 'bg-blue-500 hover:bg-blue-600 text-white'
+          ${
+            isGenerating
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-blue-500 hover:bg-blue-600 text-white'
           }
         `}
         aria-busy={isGenerating}
@@ -125,22 +126,22 @@ export default function PaymentHistory() {
       date: '2025-03-24',
       invoiceNumber: 'INV-001',
       amount: 5000,
-      paymentMethod: 'クレジットカード'
+      paymentMethod: 'クレジットカード',
     },
     {
       id: 2,
       date: '2025-03-23',
       invoiceNumber: 'INV-002',
       amount: 3000,
-      paymentMethod: '銀行振込'
-    }
+      paymentMethod: '銀行振込',
+    },
   ];
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">支払い履歴</h1>
       <div className="grid gap-4">
-        {payments.map(payment => (
+        {payments.map((payment) => (
           <PaymentCard key={payment.id} payment={payment} />
         ))}
       </div>
