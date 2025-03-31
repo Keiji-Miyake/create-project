@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react'; // import type に変更
 import { pdf, Document as PDFDocument } from '@react-pdf/renderer';
 
 interface PDFGenerationResult {
@@ -8,7 +8,7 @@ interface PDFGenerationResult {
   metadata?: PDFMetadata;
 }
 
-interface PDFMetadata {
+export interface PDFMetadata { // export を追加
   fileName: string;
   createdAt: string;
   fileSize: number;
@@ -20,7 +20,7 @@ type PDFDocumentProps = React.ComponentProps<typeof PDFDocument>;
 type PDFElement = ReactElement<PDFDocumentProps, typeof PDFDocument>;
 
 // PDFメタデータの作成
-function createPDFMetadata(
+export function createPDFMetadata( // export を追加
   fileName: string,
   blob: Blob,
   uploadStatus: 'local' | 'uploaded' | 'failed'
@@ -36,7 +36,7 @@ function createPDFMetadata(
 export async function generateAndUploadPDF(
   document: PDFElement,
   fileName: string,
-  uploadToS3: boolean = true
+  uploadToS3 = true // 型注釈を削除
 ): Promise<PDFGenerationResult> {
   try {
     // PDF生成
@@ -91,8 +91,8 @@ export function cleanupDownloadUrl(url: string): void {
 }
 
 // PDFドキュメントの型チェック関数
-export function isPDFElement(element: ReactElement): element is PDFElement {
-  return element.type === PDFDocument;
+export function isPDFElement(element: ReactElement | null | undefined): element is PDFElement {
+  return element?.type === PDFDocument;
 }
 
 /**
