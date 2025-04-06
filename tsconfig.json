@@ -23,5 +23,9 @@
     "strictPropertyInitialization": true
   },
   "include": ["scripts/**/*", ".cline/**/*", "src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+  "exclude": ["node_modules", "**/*.test.ts"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

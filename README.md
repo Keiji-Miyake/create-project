@@ -68,16 +68,26 @@ cd ai-toolbox
 
 ### .clinerules
 
-AIの動作ルールを定義します。以下は設定例です：
+AIの動作ルールを定義します。Markdown形式で記述され、以下のようなセクションを含みます：
 
-```json
-{
-  "rules": {
-    "codeStyle": "standard",
-    "maxLineLength": 80,
-    "preferredLanguage": "typescript"
-  }
-}
+```markdown
+# Modern TypeScript Development Guidelines
+
+## 設計原則
+- SOLID原則の遵守
+- クリーンアーキテクチャの採用
+- 型安全性の重視
+
+## 開発プロセス
+- コードレビューの実施
+- テストの自動化
+- 継続的インテグレーション
+
+## 主要なセクション
+- 基本設定 (00_base.md)
+- 開発プロセス (05_process.md)
+- プロジェクト規約
+- モードごとの動作ルール
 ```
 
 ### .roomodes
