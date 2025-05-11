@@ -1,5 +1,5 @@
 {
-  "name": "@Keiji-Miyake/create-project",
+  "name": "@keiji-miyake/create-project",
   "version": "1.0.0",
   "description": "CLI tool to create Next.js+Hono or React Native projects with AI coding agent integration",
   "bin": {
@@ -21,18 +21,16 @@
     "build": "tsc && cp -r templates dist/",
     "dev": "ts-node --transpileOnly bin/index.ts",
     "dev:esm": "node --loader ts-node/esm bin/index.ts",
-    "prepare": "pnpm build && husky",
+    "prepare": "pnpm build && husky install",
     "prepublishOnly": "pnpm build",
-    "build-clinerules": "ts-node-esm scripts/build-clinerules.ts"
+    "build-clinerules": "ts-node-esm scripts/build-clinerules.ts",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "lint:fix": "biome check --write ."
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
+    "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"],
+    "*.{json,md}": ["biome format --write"]
   },
   "dependencies": {
     "fs-extra": "^11.1.1",
@@ -40,20 +38,17 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^8.2.6",
     "@types/node": "^20.11.30",
-    "husky": "^9.0.11",
+    "husky": "^8.0.0",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.12.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   },
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
-  ],
+  "files": ["dist", "package.json", "README.md"],
   "publishConfig": {
     "access": "public"
   }

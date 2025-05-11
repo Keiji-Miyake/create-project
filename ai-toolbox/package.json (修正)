@@ -1,0 +1,15 @@
+{
+  "lint-staged": {
+    "*.js": [
+      "bione lint",
+      "bione format"
+    ],
+    "*.ts": [
+      "bione lint",
+      "bione format"
+    ],
+    "*.css": [
+      "bione format"
+    ]
+  }
+}
