@@ -1,1 +1,1 @@
-pnpm exec lint-staged && git add .clinerules
+pnpm exec lint-staged

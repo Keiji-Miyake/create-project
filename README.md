@@ -4,7 +4,37 @@ AI支援によるコード生成のための最適化されたボイラープレ
 
 ## 概要
 
-このプロジェクトは、AI（人工知能）によるコード生成の品質、効率、および速度を向上させることを目的としたボイラープレートです。Cline、Cursor などのAIコード生成ツールの設定ファイルを一元管理し、最適な開発環境を提供します。
+このプロジェクトは、AI（人工知能）によるコード生成の品質、効率、および速度を向上させることを目的としたボイラープレートです。GitHub Copilot、Cline、Cursor などのAIコード生成ツールの設定ファイルを一元管理し、最適な開発環境を提供します。
+
+## create-project CLI
+
+AI開発に最適化されたプロジェクトテンプレートを簡単に生成するCLIツールを提供しています。
+
+### 機能
+
+- Next.js + Honoベースのウェブアプリテンプレート生成
+- React Nativeベースのモバイルアプリテンプレート生成
+- 各種AIコーディングエージェント（GitHub Copilot、Cline、Cursor）対応のテンプレート
+
+### 使用方法
+
+```bash
+# コマンドラインから実行
+npx create-project myapp
+```
+
+対話式のプロンプトで以下を入力するだけです：
+
+1. プロジェクト名（コマンドライン引数がない場合）
+
+現在のバージョン（v1.0.0）では、Next.js + HonoベースのWebアプリ + GitHub Copilot向けのテンプレートのみ対応しています。将来のバージョンでは以下のオプションが追加される予定です：
+
+- 技術スタック（Webアプリ／モバイルアプリ）
+- AIコーディングエージェント（GitHub Copilot／Cline／Cursor）
+
+※パッケージマネージャーは pnpm を使用してください
+
+※パッケージマネージャーは pnpm を使用してください
 
 ## 特徴
 
@@ -16,14 +46,15 @@ AI支援によるコード生成のための最適化されたボイラープレ
 
 ## プロジェクト構造
 
-```
+```tree
 .
 ├── .clinerules        # Clineのグローバルルール設定
 ├── .clineignore       # Cline用の除外ファイル設定
-├── .roomodes          # Clineのカスタムモード定義
-├── .gitignore         # Git用の除外ファイル設定
-└── cline/
-    └── custom-instructions.md  # カスタム指示設定
+├── .github            # GitHub用の設定ディレクトリ
+   ├── instructions
+   ├── prompts
+   └── copilot-instructions.md
+
 ```
 
 ## 使用方法
@@ -33,11 +64,6 @@ AI支援によるコード生成のための最適化されたボイラープレ
 git clone https://github.com/yourusername/ai-toolbox.git
 cd ai-toolbox
 ```
-
-2. 必要に応じて設定ファイルをカスタマイズ:
-   - `.clinerules`: AIの動作ルールを定義
-   - `.clineignore`: 解析から除外するファイルを指定
-   - `.roomodes`: カスタムモードの定義を設定
 
 ## 開発ワークフロー
 

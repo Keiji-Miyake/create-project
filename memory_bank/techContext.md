@@ -11,24 +11,27 @@
 
 ## 使用技術スタック
 
-### 1. フロントエンド
+### 1. フレームワーク
 
-* HTML5/CSS3
-* JavaScript/TypeScript
-* モダンフレームワーク
+* Next.js v15 (App Router)
+* React
+* React Native
+* Hono v4
 
-### 2. バックエンド
+### 2. 言語・基盤
 
+* TypeScript
 * Node.js
-* Express/Fastify
-* データベース（未定）
+* zod（バリデーション）
 
 ### 3. 開発ツール
 
 * ESLint
 * Prettier
 * Jest
+* Vitest
 * TypeScript Compiler
+* ts-node
 
 ## 品質管理
 

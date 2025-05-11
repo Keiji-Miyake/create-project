@@ -22,10 +22,12 @@
     "strictBindCallApply": true,
     "strictPropertyInitialization": true
   },
-  "include": ["scripts/**/*", ".cline/**/*", "src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"],
+  "include": ["scripts/**/*", ".cline/**/*", "src/**/*", "bin/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts", "templates/**/*"],
   "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "NodeNext"
+    }
   }
 }

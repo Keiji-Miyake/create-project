@@ -1,3 +1,22 @@
 {
-    "chat.agent.enabled": true
+    "chat.agent.enabled": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.chat.codeGeneration.instructions": [
+
+        {
+            "file": ".general.instructions.md"
+        }
+    ],
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "text": "必ず日本語で書いてください。"
+        },
+        {
+            "text": "コミットメッセージは、Conventional Commitsに則って記述してください。"
+        },
+        {
+            "text": "その後、ファイルごとの詳細な変更内容を記述してください。"
+        }
+    ],
+    "workbench.settings.openDefaultKeybindings": true
 }
