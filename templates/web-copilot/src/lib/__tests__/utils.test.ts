@@ -1,4 +1,4 @@
-// src/lib/__tests__/utils.test.ts
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { isEmpty, formatErrorMessage, formatDate, debounce } from '../utils';
 
 describe('isEmpty', () => {
@@ -56,35 +56,41 @@ describe('formatDate', () => {
 });
 
 describe('debounce', () => {
-  jest.useFakeTimers();
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+  
+  afterEach(() => {
+    vi.useRealTimers();
+  });
 
   it('should delay function execution', () => {
-    const func = jest.fn();
+    const func = vi.fn();
     const debouncedFunc = debounce(func, 1000);
 
     debouncedFunc();
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(500);
-    expect(func).not.toBeCalled();
+    vi.advanceTimersByTime(500);
+    expect(func).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(500);
-    expect(func).toBeCalled();
-    expect(func).toBeCalledTimes(1);
+    vi.advanceTimersByTime(500);
+    expect(func).toHaveBeenCalled();
+    expect(func).toHaveBeenCalledTimes(1);
   });
 
   it('should cancel previous timeout on repeated calls', () => {
-    const func = jest.fn();
+    const func = vi.fn();
     const debouncedFunc = debounce(func, 1000);
 
     debouncedFunc();
     debouncedFunc();
     debouncedFunc();
     
-    jest.advanceTimersByTime(999);
-    expect(func).not.toBeCalled();
+    vi.advanceTimersByTime(999);
+    expect(func).not.toHaveBeenCalled();
     
-    jest.advanceTimersByTime(1);
-    expect(func).toBeCalledTimes(1);
+    vi.advanceTimersByTime(1);
+    expect(func).toHaveBeenCalledTimes(1);
   });
 });
