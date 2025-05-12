@@ -26,7 +26,7 @@ pnpm dev
 
 ## プロジェクト構造
 
-```
+```text
 ├── .github/               # GitHub関連設定
 ├── src/
 │   ├── app/               # App Router コンポーネント
@@ -37,6 +37,22 @@ pnpm dev
 ├── public/                # 静的ファイル
 └── .eslintrc.json        # ESLint設定
 ```
+
+## テスト環境
+
+このプロジェクトはVitestを使用してテストを行います。現在の設定では以下のテスト方針を採用しています：
+
+```bash
+# テストの実行
+pnpm test
+```
+
+### テスト設定の詳細
+
+- テストファイルは `.test.ts` または `.spec.ts` 拡張子で作成します
+- JSX/TSXを含むReactコンポーネントのテストは現在一時的に除外されています
+  - 今後対応予定のため、`.test.tsx` ファイルは保持しておいてください
+- テストの環境設定は `src/test/setup.ts` で管理しています
 
 ## GitHub Copilotの活用方法
 

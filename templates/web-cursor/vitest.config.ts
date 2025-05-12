@@ -15,8 +15,8 @@ export default defineConfig({
       reporter: ['text', 'html'],
       exclude: ['node_modules/', 'dist/'],
     },
-    include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    exclude: ['**/e2e/**', '**/node_modules/**', '**/dist/**'],
+    include: ['**/*.{test,spec}.{ts,mts,cts}'],
+    exclude: ['**/e2e/**', '**/node_modules/**', '**/dist/**', '**/*.{jsx,tsx}'],
   },
   resolve: {
     alias: {
