@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,ts,jsx,tsx}\"",
+    "lint": "biome lint .",
+    "format": "biome format . --write",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
@@ -32,12 +32,6 @@
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.18.1",
-    "@typescript-eslint/parser": "^6.18.1",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
@@ -48,15 +42,16 @@
     "jsdom": "^23.0.0",
     "@playwright/test": "^1.40.0",
     "husky": "^9.0.7",
-    "lint-staged": "^15.2.0"
+    "lint-staged": "^15.2.0",
+    "biome": "^0.3.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "biome lint --apply ",
+      "biome format --write"
     ],
     "*.{json,md}": [
-      "prettier --write"
+      "biome format --write"
     ]
   }
 }
