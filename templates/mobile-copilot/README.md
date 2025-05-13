@@ -9,6 +9,7 @@
 - React Navigation for アプリナビゲーション
 - GitHub Copilotとの連携設定済み
 - ESLint + Prettierによるコード品質管理
+- **テストフレームワークはVitest/Playwrightのみを使用し、Jestは禁止**
 
 ## セットアップ手順
 
@@ -27,6 +28,12 @@ pnpm ios
 
 # または、Androidエミュレータを起動
 pnpm android
+
+# テストの実行 (Vitest)
+pnpm test
+
+# E2Eテストの実行 (Playwright)
+pnpm test:e2e
 ```
 
 ## プロジェクト構造

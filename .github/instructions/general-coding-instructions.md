@@ -18,3 +18,9 @@ applyTo: "**"
 - Always use pnpm instead of npm or yarn
 - Run `pnpm install` for package installation
 - Use `pnpm` for all script commands
+
+## Testing Frameworks
+- Use Vitest and Playwright as the standard testing frameworks
+- Do NOT use Jest (Jestの利用は禁止)
+- テスト記述・実行はVitest/Playwrightに統一すること
+- **ただし、React Nativeテンプレート（mobile-copilot等）に限りJestの利用を許容する**
