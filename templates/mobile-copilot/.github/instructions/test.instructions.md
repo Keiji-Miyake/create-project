@@ -1,3 +1,4 @@
+<!-- filepath: /home/dev/workspace/create-project/templates/mobile-copilot/.github/instructions/test.instructions.md -->
 ---
 applyTo: "**"
 ---

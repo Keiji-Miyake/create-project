@@ -47,8 +47,10 @@
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^8.2.6",
     "@types/node": "^20.11.30",
+    "biome": "^0.3.3",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.2",
+    "prettier": "^3.5.3",
     "simple-git-hooks": "^2.12.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
