@@ -18,6 +18,10 @@
 # 依存関係のインストール
 pnpm install
 
+# ※初回セットアップ時、package.jsonに "prepare": "husky install" が自動追加され、huskyが有効化されます
+# もしフックが有効化されていない場合は、以下を手動実行してください
+pnpm run prepare
+
 # 開発サーバーの起動
 pnpm dev
 ```

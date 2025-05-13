@@ -34,7 +34,15 @@ npx create-project myapp
 
 ※パッケージマネージャーは pnpm を使用してください
 
-※パッケージマネージャーは pnpm を使用してください
+### 注意: Husky有効化について
+
+- 生成されたプロジェクトのpackage.jsonには、初回セットアップ時（pnpm install後）に `"prepare": "husky install"` スクリプトが自動で追加されます。
+- これにより、pre-commit等のGitフックが正しく有効化されます。
+- もし何らかの理由でフックが有効化されていない場合は、プロジェクトルートで以下を手動実行してください：
+
+```bash
+pnpm run prepare
+```
 
 ## 特徴
 

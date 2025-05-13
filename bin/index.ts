@@ -137,6 +137,24 @@ async function main(): Promise<void> {
   
   // テンプレートをコピー
   await copyTemplate(config);
+
+  // --- ここから自動でprepareスクリプト追加処理 ---
+  try {
+    const targetPath = path.resolve(process.cwd(), config.projectName);
+    const pkgPath = path.join(targetPath, 'package.json');
+    if (await fs.pathExists(pkgPath)) {
+      const pkg = await fs.readJson(pkgPath);
+      if (!pkg.scripts) pkg.scripts = {};
+      if (!pkg.scripts.prepare) {
+        pkg.scripts.prepare = 'husky install';
+        await fs.writeJson(pkgPath, pkg, { spaces: 2 });
+        console.log('✅ package.json に "prepare": "husky install" を自動追加しました');
+      }
+    }
+  } catch (e) {
+    console.warn('package.json の prepare スクリプト自動追加に失敗:', e);
+  }
+  // --- ここまで追加処理 ---
 }
 
 // プログラムを実行
