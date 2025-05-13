@@ -15,7 +15,6 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "type-check": "tsc --noEmit",
-    "prepare": "husky install",
     "check": "pnpm format && pnpm lint && pnpm type-check && pnpm test"
   },
   "dependencies": {
