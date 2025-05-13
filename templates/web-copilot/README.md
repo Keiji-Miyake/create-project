@@ -47,11 +47,14 @@ pnpm dev
 このプロジェクトはVitest/Playwrightでテスト、Biomeで静的解析・フォーマットを行います。
 
 ```bash
-# テストの実行
+# ユニットテスト（Vitest）
 pnpm test
 
-# E2Eテスト
+# E2Eテスト（Playwright）
 pnpm test:e2e
+
+# テストカバレッジ
+pnpm test:coverage
 
 # Lint（Biome）
 pnpm lint
@@ -59,6 +62,10 @@ pnpm lint
 # フォーマット（Biome）
 pnpm format
 ```
+
+- ユニットテスト例: `src/lib/__tests__/utils.test.ts` など
+- E2Eテスト例: `e2e/example.spec.ts`
+- E2Eテストレポート: `pnpm exec playwright show-report` でHTMLレポートを確認可能
 
 ## Biomeの利用について
 
