@@ -44,6 +44,10 @@ npx create-project myapp
 pnpm run prepare
 ```
 
+## 詳細なCLIセットアップガイド
+
+より詳しいローカル環境セットアップ手順は [docs/cli-setup-guide.md](docs/cli-setup-guide.md) を参照してください。
+
 ## 特徴
 
 - 📝 最適化されたAI prompting設定
@@ -200,6 +204,10 @@ pnpm test:e2e:ui
 - **独立性**：各テストは他のテストに依存しない
 - **可読性**：テストコードは仕様書としても機能するよう可読性を保つ
 - **メンテナンス性**：実装変更に影響されにくいテストを書く
+
+## テンプレート管理ガイド（運用・開発者向け）
+
+テンプレートの追加・削除・管理手順は [docs/template-management.md](docs/template-management.md) を参照してください。
 
 ## ライセンス
 

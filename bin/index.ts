@@ -73,6 +73,30 @@ async function copyTemplate(config: ProjectConfig): Promise<void> {
   const templatePath = path.resolve(templateDir, `${config.stack}-${config.agent}`);
   const targetPath = path.resolve(process.cwd(), config.projectName);
 
+  // --- ここから instructions/prompts のテンプレート反映処理 ---
+  // プロジェクトルートの .github/instructions, .github/prompts をテンプレート側に反映
+  const projectRoot = path.resolve(__dirname, '..');
+  const rootGh = path.join(projectRoot, '.github');
+  const rootInstructions = path.join(rootGh, 'instructions');
+  const rootPrompts = path.join(rootGh, 'prompts');
+  const tmplGh = path.join(templatePath, '.github');
+  const tmplInstructions = path.join(tmplGh, 'instructions');
+  const tmplPrompts = path.join(tmplGh, 'prompts');
+
+  // instructions
+  if (await fs.pathExists(rootInstructions)) {
+    await fs.ensureDir(tmplGh);
+    await fs.copy(rootInstructions, tmplInstructions, { overwrite: true });
+    console.log('✅ テンプレートに instructions を反映しました');
+  }
+  // prompts
+  if (await fs.pathExists(rootPrompts)) {
+    await fs.ensureDir(tmplGh);
+    await fs.copy(rootPrompts, tmplPrompts, { overwrite: true });
+    console.log('✅ テンプレートに prompts を反映しました');
+  }
+  // --- ここまで追加 ---
+
   try {
     // ディレクトリが存在するか確認
     if (await fs.pathExists(targetPath)) {
@@ -91,6 +115,25 @@ async function copyTemplate(config: ProjectConfig): Promise<void> {
 
     // テンプレートディレクトリをコピー
     await fs.copy(templatePath, targetPath);
+
+    // --- ここから .github/instructions, .github/prompts の明示的コピー処理 ---
+    const ghSrc = path.join(templatePath, '.github');
+    const ghDest = path.join(targetPath, '.github');
+    const instructionsSrc = path.join(ghSrc, 'instructions');
+    const instructionsDest = path.join(ghDest, 'instructions');
+    const promptsSrc = path.join(ghSrc, 'prompts');
+    const promptsDest = path.join(ghDest, 'prompts');
+
+    if (await fs.pathExists(instructionsSrc)) {
+      await fs.copy(instructionsSrc, instructionsDest, { overwrite: true });
+      console.log('✅ .github/instructions ディレクトリをコピーしました');
+    }
+    if (await fs.pathExists(promptsSrc)) {
+      await fs.copy(promptsSrc, promptsDest, { overwrite: true });
+      console.log('✅ .github/prompts ディレクトリをコピーしました');
+    }
+    // --- ここまで追加 ---
+
     console.log(`✅ ${config.projectName} を生成しました`);
     console.log('\n次のステップ:');
     console.log(`  cd ${config.projectName}`);
