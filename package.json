@@ -26,7 +26,8 @@
     "build-clinerules": "ts-node-esm scripts/build-clinerules.ts",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "lint:fix": "biome check --write ."
+    "lint:fix": "biome check --write .",
+    "test": "vitest"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -53,7 +54,10 @@
     "prettier": "^3.5.3",
     "simple-git-hooks": "^2.12.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "vitest": "^1.4.0",
+    "@vitest/ui": "^1.4.0",
+    "playwright": "^1.43.1"
   },
   "files": [
     "dist",
