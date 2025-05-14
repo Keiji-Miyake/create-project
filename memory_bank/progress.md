@@ -54,11 +54,10 @@
 
 ---
 
-## 次回タスク・TODO（2025-05-13）
+## 次回タスク・TODO
 
 * pre-commitフック（prettier, biome等）のエラー（ENOENT, KILLED）を解消し、コミット時に正常動作するよう修正
   * テンプレート内（templates/web-copilot等）で `prepare` スクリプト（husky install）が誤作動しないよう、package.jsonからprepareを削除。プロジェクト生成時のみ有効化する運用に変更。
-* CLIでテンプレート instructions ディレクトリごと自動コピーする仕組みの実装
 * テンプレート追加・削除時の運用フローをドキュメント化
 * 必要なテンプレートのみ instructions を持つシンプルな構成を維持
 * テンプレートごとのルール追加・変更時の手順を明文化
