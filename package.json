@@ -54,10 +54,7 @@
     "prettier": "^3.5.3",
     "simple-git-hooks": "^2.12.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3",
-    "vitest": "^1.4.0",
-    "@vitest/ui": "^1.4.0",
-    "playwright": "^1.43.1"
+    "typescript": "^5.4.3"
   },
   "files": [
     "dist",
