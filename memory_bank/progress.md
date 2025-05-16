@@ -17,11 +17,13 @@
 ## 残タスク（リリース優先順）
 
 1. npm公開準備
-2. pre-commitフック（prettier, biome等）のエラー（ENOENT, KILLED）を解消し、コミット時に正常動作するよう修正
-3. 依存関係の脆弱性チェック体制の確立
-4. セキュリティガイドラインの策定
-5. 環境変数管理の整備
-6. ドキュメントのさらなる充実（必要に応じて）
+2. CI/CDエラー（pnpm-lock.yamlがCIで見つからず、pnpm install --frozen-lockfileが失敗）を解消
+   * lint-format, typecheck, test, audit全てで同様のエラーが発生
+3. pre-commitフック（prettier, biome等）のエラー（ENOENT, KILLED）を解消し、コミット時に正常動作するよう修正
+4. 依存関係の脆弱性チェック体制の確立
+5. セキュリティガイドラインの策定
+6. 環境変数管理の整備
+7. ドキュメントのさらなる充実（必要に応じて）
 
 ---
 
