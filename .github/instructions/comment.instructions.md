@@ -25,3 +25,9 @@ applyTo: "**"
 
 ## 生成内容説明
 長いコード片や複雑なロジックには簡潔な説明コメントを追加してください。
+
+---
+
+## 注意事項（コメント付与対象ファイルの制限）
+- コメントヘッダーやファイルパスコメント、説明コメントは**js, ts, jsx, tsx, cjs, mjs, py, sh, bash, zsh, go, java, cs, cpp, c, rs, rb, php, swift, kt, scala, dart, pl, r, lua, scss, css**などの**プログラムファイルのみ**に付与してください。
+- **json, jsonc, yaml, yml, toml, lock, conf, md, txt, csv, env, ini, html, xml, svg, png, jpg, jpeg, gif, pdf, xlsx, docx, pptx, mdx, markdown, rst, tex, bib**などの**プログラム以外のファイルにはコメントを追加しないでください**。

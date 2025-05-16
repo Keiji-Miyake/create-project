@@ -28,6 +28,8 @@ pnpm dev
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いて、アプリケーションを確認できます。
 
+---
+
 ## プロジェクト構造
 
 ```text
@@ -45,6 +47,11 @@ pnpm dev
 ## テスト・品質管理
 
 このプロジェクトはVitest/Playwrightでテスト、Biomeで静的解析・フォーマットを行います。
+
+**テンプレート運用ルール:**
+
+- Web系テンプレートはVitest/Playwrightを標準とし、Jestは利用しません。
+- テスト・CI/CD設計は `docs/template-management.md` のルールに準拠しています。
 
 ```bash
 # ユニットテスト（Vitest）

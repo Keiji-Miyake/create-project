@@ -1,15 +1,15 @@
 # React Native アプリケーション (GitHub Copilot対応)
 
-このプロジェクトは、[React Native](https://reactnative.dev/)を使用したモバイルアプリケーションのテンプレートです。GitHub Copilotによるコード補完と提案機能を活用して、効率的な開発を行うことができます。
+このプロジェクトは、[React Native](https://reactnative.dev/) を用いたクロスプラットフォームモバイルアプリのテンプレートです。GitHub CopilotによるAIコード補完・提案機能を最大限活用できるよう設計されています。
 
-## 機能
+## 主な機能・技術スタック
 
-- React Nativeによるクロスプラットフォーム開発
-- TypeScript完全対応
-- React Navigation for アプリナビゲーション
-- GitHub Copilotとの連携設定済み
-- ESLint + Prettierによるコード品質管理
-- **テストフレームワークはVitest/Playwrightのみを使用し、Jestは禁止**
+- **React Native**: クロスプラットフォームアプリ開発
+- **TypeScript**: 型安全な開発
+- **React Navigation**: アプリナビゲーション
+- **Jest**: ユニットテスト（※React NativeテンプレートのみJest利用を許容）
+- **ESLint + Prettier**: コード品質管理
+- **zod**: バリデーション
 
 ## セットアップ手順
 
@@ -17,57 +17,52 @@
 # 依存関係のインストール
 pnpm install
 
-# ※初回セットアップ時、package.jsonに "prepare": "husky install" が自動追加され、huskyが有効化されます
-# もしフックが有効化されていない場合は、以下を手動実行してください
-pnpm run prepare
-
-# iOSビルド用のCocoaPodsをインストール (macOSのみ)
+# iOSビルド用CocoaPodsのインストール (macOSのみ)
 pnpm pods
 
-# 開発サーバーの起動
+# 開発サーバの起動
 pnpm start
 
-# 別のターミナルで、iOSシミュレータを起動
+# iOSシミュレータ起動
 pnpm ios
-
-# または、Androidエミュレータを起動
+# または Androidエミュレータ起動
 pnpm android
-
-# テストの実行 (Vitest)
-pnpm test
-
-# E2Eテストの実行 (Playwright)
-pnpm test:e2e
 ```
 
-## プロジェクト構造
+## テスト・品質管理
 
-```
+- **テストフレームワーク:** Jest（Web系テンプレートではVitest/Playwrightのみ許容、Jestは禁止）
+- **テスト実行:** `pnpm test` / `pnpm test:watch`
+- **型チェック:** `pnpm type-check`
+- **Lint:** `pnpm lint`
+- **フォーマット:** `pnpm format`
+- **一括チェック:** `pnpm check`
+
+## ディレクトリ構成例
+
+```text
 ├── .github/               # GitHub関連設定
 ├── src/
 │   ├── components/        # 再利用可能なコンポーネント
-│   ├── screens/           # アプリケーション画面
+│   ├── screens/           # アプリ画面
 │   ├── navigation/        # ナビゲーション設定
 │   ├── hooks/             # カスタムフック
 │   ├── services/          # APIサービス
 │   ├── utils/             # ユーティリティ関数
 │   ├── constants/         # 定数
-│   └── types/             # TypeScriptの型定義
-├── ios/                   # iOSプラットフォーム固有のコード
-├── android/               # Androidプラットフォーム固有のコード
-└── .eslintrc.js          # ESLint設定
+│   └── types/             # 型定義
+├── ios/                   # iOS固有コード
+├── android/               # Android固有コード
+└── .eslintrc.js           # ESLint設定
 ```
 
-## GitHub Copilotの活用方法
+## GitHub Copilot活用法
 
-このテンプレートはGitHub Copilotとの連携を前提に設計されています。以下の方法で効率的に開発を進めることができます：
+- 新しいコンポーネントや関数作成時はコメントで目的を記述し、Copilotの提案を活用
+- 型定義やテストもコメント記述で効率化
+- Copilotの提案は必ずレビューし、型安全性・可読性を担保
 
-1. 新しいコンポーネントの作成時にはコメントで目的を記述するだけで、Copilotが実装を提案します
-2. スタイリングの際も、目的を記述すれば適切なスタイルコードを生成します
-3. 型定義も必要な項目をコメントするだけで、適切な構造を提案します
+## デプロイ・リリース参考
 
-## デプロイ
-
-アプリのリリースについては以下のドキュメントを参照してください：
 - Android: [React Nativeアプリのリリース (Android)](https://reactnative.dev/docs/signed-apk-android)
 - iOS: [React Nativeアプリのリリース (iOS)](https://reactnative.dev/docs/publishing-to-app-store)
