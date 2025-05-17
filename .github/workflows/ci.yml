@@ -18,7 +18,7 @@ jobs:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR
+          ls -laR
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -41,7 +41,7 @@ jobs:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR
+          ls -laR
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -62,7 +62,7 @@ jobs:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR
+          ls -laR
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -86,7 +86,7 @@ jobs:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR
+          ls -laR
       - uses: pnpm/action-setup@v2
         with:
           version: 8
