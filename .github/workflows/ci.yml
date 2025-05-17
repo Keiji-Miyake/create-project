@@ -13,17 +13,12 @@ on:
 jobs:
   lint-format:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
+      - uses: actions/checkout@v4
       - name: "Debug: Show files in workspace"
         run: |
           pwd
           ls -lR
-      - uses: actions/checkout@v4
-        with:
-          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -41,17 +36,12 @@ jobs:
 
   typecheck:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
+      - uses: actions/checkout@v4
       - name: "Debug: Show files in workspace"
         run: |
           pwd
           ls -lR
-      - uses: actions/checkout@v4
-        with:
-          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -67,17 +57,12 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
+      - uses: actions/checkout@v4
       - name: "Debug: Show files in workspace"
         run: |
           pwd
           ls -lR
-      - uses: actions/checkout@v4
-        with:
-          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -96,17 +81,12 @@ jobs:
   # 依存脆弱性チェック
   audit:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
+      - uses: actions/checkout@v4
       - name: "Debug: Show files in workspace"
         run: |
           pwd
           ls -lR
-      - uses: actions/checkout@v4
-        with:
-          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
