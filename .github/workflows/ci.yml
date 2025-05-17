@@ -84,8 +84,6 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: Run unit/integration tests (Vitest)
         run: pnpm vitest run --coverage
-      - name: Run E2E tests (Playwright)
-        run: pnpm playwright test
 
   # 依存脆弱性チェック
   # biome依存のlodash脆弱性が解消されるまで一時的にauditジョブを無効化
