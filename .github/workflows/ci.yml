@@ -15,13 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ github.workspace }}
+        working-directory: .
     steps:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR ${{ github.workspace }}
+          ls -lR
       - uses: actions/checkout@v4
+        with:
+          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -41,13 +43,15 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ github.workspace }}
+        working-directory: .
     steps:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR ${{ github.workspace }}
+          ls -lR
       - uses: actions/checkout@v4
+        with:
+          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -65,13 +69,15 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ github.workspace }}
+        working-directory: .
     steps:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR ${{ github.workspace }}
+          ls -lR
       - uses: actions/checkout@v4
+        with:
+          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -92,13 +98,15 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ github.workspace }}
+        working-directory: .
     steps:
       - name: "Debug: Show files in workspace"
         run: |
           pwd
-          ls -lR ${{ github.workspace }}
+          ls -lR
       - uses: actions/checkout@v4
+        with:
+          path: .
       - uses: pnpm/action-setup@v2
         with:
           version: 8
