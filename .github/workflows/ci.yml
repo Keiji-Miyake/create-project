@@ -13,6 +13,9 @@ on:
 jobs:
   lint-format:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -32,6 +35,9 @@ jobs:
 
   typecheck:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -49,6 +55,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -69,6 +78,9 @@ jobs:
   # 依存脆弱性チェック
   audit:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
