@@ -1,4 +1,3 @@
-// filepath: templates/web-copilot/.github/instructions/general-coding.instructions.md
 ---
 applyTo: "**"
 ---
