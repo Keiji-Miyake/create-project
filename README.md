@@ -87,6 +87,48 @@ git clone https://github.com/yourusername/ai-toolbox.git
 cd ai-toolbox
 ```
 
+## ビルド・ローカル開発方法
+
+このCLIツールの開発や動作確認は以下の手順で行えます。
+
+### 依存パッケージのインストール
+
+```bash
+pnpm install
+```
+
+### ビルド
+
+TypeScriptでビルドし、テンプレートもdistにコピーします。
+
+```bash
+pnpm build
+```
+
+### ローカル開発（デバッグ実行）
+
+TypeScriptのままCLIを実行できます。
+
+```bash
+pnpm dev
+```
+
+ESMモードでの実行も可能です。
+
+```bash
+pnpm dev:esm
+```
+
+### テスト
+
+Vitestでユニット・統合テストを実行します。
+
+```bash
+pnpm test
+```
+
+---
+
 ## 開発ワークフロー
 
 ### コミットルール
@@ -102,15 +144,16 @@ cd ai-toolbox
    - 大きな機能追加や変更の区切り時
 
 3. コミットメッセージの規則:
-   ```
-   feat: 新機能の追加
-   fix: バグ修正
-   docs: ドキュメントの更新
-   style: フォーマットの変更
-   refactor: リファクタリング
-   test: テストの追加・修正
-   chore: その他の変更
-   ```
+
+```text
+feat: 新機能の追加
+fix: バグ修正
+docs: ドキュメントの更新
+style: フォーマットの変更
+refactor: リファクタリング
+test: テストの追加・修正
+chore: その他の変更
+```
 
 ## カスタマイズ
 
@@ -183,29 +226,6 @@ pnpm test:ui
 
 # カバレッジレポートを出力
 pnpm test:coverage
-```
-
-### E2Eテスト：Playwright
-
-[Playwright](https://playwright.dev/)は、モダンなWebアプリケーションのEnd-to-Endテストを可能にするフレームワークです：
-
-- クロスブラウザ対応（Chromium、Firefox、WebKit）
-- モバイルビューポートのエミュレーション
-- 自動待機メカニズム
-- トレースビューワーによる詳細なデバッグ
-- コンポーネントテスト対応
-
-使用方法：
-
-```bash
-# ブラウザをインストール（初回のみ）
-npx playwright install
-
-# すべてのE2Eテストを実行
-pnpm test:e2e
-
-# UIモードでE2Eテストを実行
-pnpm test:e2e:ui
 ```
 
 ### テスト設計原則
